@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<script src="script.js"></script>
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	</head>
+
+	<body onload="disabler()">
+		<script>
+			function disabler() {
+				document.getElementById("depttxtbtn").disabled = true;
+				document.getElementById("classnumtxtbtn").disabled = true;
+			}
+		</script>
+		<div class="body-wrapper">
+	    <div class="intro-section section">
+	    	<h1 class="title">The USC Schedule Maker</h1>
+	    	<div class="info-wrapper">
+	        <h3>Ever struggle with the ardous task of creating your schedule?</h3>
+	        <p>Then try The USC Schedule Maker. Just provide the year and semester
+	        	that you are scheduling for.</p>
+	    	</div>
+	    </div>
+
+			<table style="width:15%" cellpadding=4>
+			  <tr>
+			    <th><textarea id="yeartxt" placeholder="Choose from menu..."></textarea></th>
+			    <th>
+						<div class="dropdown">
+						  <button onclick="myFunctionYear()" class="dropbtn">Year</button>
+						  <div id="myDropdownYear" class="dropdown-content">
+								<a id = "2017" onclick="year('2017')">2017</a>
+						    <a id = "2018" onclick="year('2018')">2018</a>
+						    <a id = "2019" onclick="year('2019')">2019</a>
+						  </div>
+						</div>
+					</th>
+			  </tr>
+				<tr>
+			    <th><textarea id="semestertxt" placeholder="Choose from menu..."></textarea></th>
+			    <th>
+						<div class="dropdown">
+						  <button onclick="myFunctionSemester()" class="dropbtn">Semester</button>
+						  <div id="myDropdownSemester" class="dropdown-content">
+								<a id = "Fall" onclick="semester('3')">Fall</a>
+						    <a id = "Spring" onclick="semester('1')">Spring</a>
+						    <a id = "Summer" onclick="semester('2')">Summer</a>
+						  </div>
+						</div>
+					</th>
+			  </tr>
+			</table>
+
+			<p>Now tell us what classes you want to take.</p>
+
+			<table style="width:15%" cellpadding=4 id="department">
+				<tr>
+			    <th><textarea id="schooltxt" placeholder="Choose from menu..."></textarea></th>
+			    <th>
+						<div class="dropdown">
+						  <button onclick="myFunctionSchool()" class="dropbtn">School</button>
+						  <div id="myDropdownSchool" class="dropdown-content">
+						  </div>
+						</div>
+					</th>
+			  </tr>
+				<tr>
+			    <th><textarea id="depttxt" placeholder="Choose from menu..."></textarea></th></th>
+			    <th>
+						<div class="dropdown">
+						  <button onclick="myFunctionDeptTxt()" id="depttxtbtn" class="dropbtn">Department</button>
+						  <div id="myDropdownDeptTxt" class="dropdown-content">
+						  </div>
+						</div>
+					</th>
+			  </tr>
+				<tr>
+			    <th><textarea id="classnumtxt" placeholder="Choose from menu..."></textarea></th></th>
+			    <th>
+						<div class="dropdown">
+						  <button onclick="myFunctionYear()" id="classnumtxtbtn" class="dropbtn">Class #</button>
+						  <div id="myDropdownYear" class="dropdown-content">
+								<a id = "2017" onclick="year('2017')">2017</a>
+						    <a id = "2018" onclick="year('2018')">2018</a>
+						    <a id = "2019" onclick="year('2019')">2019</a>
+						  </div>
+						</div>
+					</th>
+			  </tr>
+			</table>
+
+			<script>
+				var yearParam
+				var valJSON2
+				function year(param) {
+					yearParam = param
+					document.getElementById("yeartxt").value = param;
+				}
+				function semester(parameter) {
+					valJSON2 = window.yearParam + parameter
+					getDataSchool(valJSON2)
+					getDataYear(valJSON2)
+					if (parameter == '1') {
+						document.getElementById("semestertxt").value = "Spring";
+					}
+					if (parameter == '2') {
+						document.getElementById("semestertxt").value = "Summer";
+					}
+					if (parameter == '3') {
+						document.getElementById("semestertxt").value = "Fall";
+					}
+					document.getElementById("depttxtbtn").disabled = false;
+				}
+			</script>
+	</body>
+</html>
