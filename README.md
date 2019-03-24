@@ -20,3 +20,7 @@ Features to Implement:
  - Allow user to specify starting and ending time of days
 
  - Give give user the option to not schedule classes on Fridays
+
+ - Include average Rate My Professor Rating
+
+ - Rank schedules by user preference such as by Rate My Professor Rating or time
